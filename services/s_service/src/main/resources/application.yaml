@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/services_example
+    username: postgres
+    password: password
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog.yaml
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      all-students:
+        group-id: all-students
+      student-by-id:
+        group-id: student-by-id
+    topics:
+      all-students-topic:
+        name: all-students
+      student-by-id-topic:
+        name: student-by-id
